@@ -8,7 +8,8 @@ public class FireHydrant extends SideObject {
     public FireHydrant(String name, int damage){
         super(name, damage);
     }
+    @Override
     public void onCollision(GameObject other){
-        
+
     }
 }
