@@ -3,7 +3,7 @@ package com.ood;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class Player {
+public class Player extends GameObject {
     private int health;
     private PlayerVehicle vehicle;
 
