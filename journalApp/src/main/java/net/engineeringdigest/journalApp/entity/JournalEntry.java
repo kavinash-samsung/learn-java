@@ -1,7 +1,6 @@
 package net.engineeringdigest.journalApp.entity;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

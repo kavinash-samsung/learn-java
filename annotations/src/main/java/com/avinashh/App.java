@@ -20,5 +20,6 @@ public class App
         // System.out.println(vehicle.getDiscountMessage());
         // System.out.println(vehicle.getMrp());
         System.out.println(vehicle1.equals(vehicle2));
+        context.close();
     }
 }
