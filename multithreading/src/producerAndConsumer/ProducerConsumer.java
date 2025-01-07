@@ -39,7 +39,7 @@ class Worker{
                     System.out.println("Container is empty Waiting for items to be added....");
                     lock.wait();
                 }else{
-                    System.out.println(container.removeFirst()+ " removed from the container");
+                    System.out.println(container.remove(0)+ " removed from the container");
                     lock.notify();
                 }
                 Thread.sleep(500);
