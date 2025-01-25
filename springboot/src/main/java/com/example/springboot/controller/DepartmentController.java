@@ -29,7 +29,7 @@ public class DepartmentController {
     
     private final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
 
-    @PostMapping("/department")
+    @PostMapping("/departments")
     public Department saveDepartment(@Valid @RequestBody Department department){
         LOGGER.info("Insive saveDepartment of DepartmentController");
         return departmentService.saveDepartment(department);        
@@ -40,16 +40,16 @@ public class DepartmentController {
         return departmentService.fetchDepartmentList();
     }
 
-    @GetMapping("/department/{id}")
+    @GetMapping("/departments/{id}")
     public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException{
         return departmentService.fetchDepartmentById(departmentId);
     }
     
-    @DeleteMapping("/department/{id}")
+    @DeleteMapping("/departments/{id}")
     public String deleteDepartmentById(@PathVariable("id") Long departmentId){
         return departmentService.deleteDepartmentById(departmentId);
     }
-    @PutMapping("/department/{id}")
+    @PutMapping("/departments/{id}")
     public Department updateDepartment(@PathVariable("id") Long departmentId, @RequestBody Department department){
         return departmentService.updateDepartment(departmentId, department);
     }
