@@ -5,6 +5,8 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +17,11 @@ import com.example.springboot.repository.DepartmentRepository;
 @Service
 public class DepartmentServiceImpl implements DepartmentService{
 
+    private final Logger LOGGER = LoggerFactory.getLogger(DepartmentServiceImpl.class);
+
     @Autowired
     private DepartmentRepository departmentRepository;
-
+    
     @Override
     public Department saveDepartment(Department department) {
         return departmentRepository.save(department);
@@ -25,13 +29,16 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public List<Department> fetchDepartmentList() {
+        LOGGER.info("i am logger info");
         return departmentRepository.findAll();
     }
 
     @Override
     public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException {
         Optional<Department> optionalDepartment =  departmentRepository.findById(departmentId);
+        LOGGER.info(String.format("Department with id %s not found", departmentId));
         if(!optionalDepartment.isPresent()){
+            LOGGER.error(String.format("Department with id %s not found", departmentId));
             throw new DepartmentNotFoundException("Department not found");
         }
         return optionalDepartment.get();
